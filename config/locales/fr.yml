@@ -1,0 +1,4 @@
+# French strings go here for Rails i18n
+fr:
+  field_show_issues_count: Afficher le nombre de demandes
+
