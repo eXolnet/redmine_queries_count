@@ -16,7 +16,14 @@ class CustomField
     	
     	set = values.collect {|v| "'#{v}'"}.join(',')
     	
-    	return "COALESCE(FIELD(#{join_alias}.value, #{set}), '')"
+    	# Redmine 3.x
+    	#return "COALESCE(FIELD(#{join_alias}.value, #{set}), '')"
+    	
+    	# Redmine 2.x
+    	return "COALESCE(FIELD((SELECT cv_sort.value FROM #{CustomValue.table_name} cv_sort" +
+          " WHERE cv_sort.customized_type='#{self.class.customized_class.base_class.name}'" +
+          " AND cv_sort.customized_id=#{self.class.customized_class.table_name}.id" +
+          " AND cv_sort.custom_field_id=#{id} LIMIT 1), #{set}), '')"
     end
     
     order_statement_without_custom_order
