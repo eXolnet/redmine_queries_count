@@ -9,9 +9,10 @@ module IssuesHelper
 	      queries.collect {|query|
 	          css = 'query'
 	          css << ' selected' if query == @query
-	          
+
 	          if query.show_issues_count
-		          link_to(h(query.name) + " (" + query.issue_count().to_s + ")", url_params.merge(:query_id => query), :class => css)
+		          query.project = @project
+                          link_to(h(query.name) + " (" + query.issue_count().to_s + ")", url_params.merge(:query_id => query), :class => css)
 	          else
 	          	link_to(h(query.name), url_params.merge(:query_id => query), :class => css)
 	          end
