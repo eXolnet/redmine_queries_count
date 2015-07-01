@@ -1,3 +1,10 @@
-= reports_issues_count
+= Redmine Queries Issues Count
 
-Description goes here
+Redmine plugin to display issues count for queries in the sidebar.
+
+== Installation
+1. Follow the Redmine plugin installation steps at: http://www.redmine.org/wiki/redmine/Plugins and make sure the plugin is installed to +vendor/plugins/redmine_queries_issues_count+
+2. Restart your Redmine web servers (e.g. mongrel, thin, mod_rails)
+
+== License
+The code is licensed under the {MIT license}[http://choosealicense.com/licenses/mit/]. See LICENSE.
