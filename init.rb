@@ -9,8 +9,8 @@ else
 end
 
 object_to_prepare.to_prepare do
-	require 'advanced_queries_issues_helper_patch'
-	require 'advanced_queries_custom_field_patch'
+  require 'advanced_queries_queries_helper_patch'
+  require 'advanced_queries_custom_field_patch'
 end
 
 # Configure our plugin
