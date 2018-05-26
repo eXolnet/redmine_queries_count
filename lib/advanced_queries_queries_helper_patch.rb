@@ -21,6 +21,7 @@ module QueriesHelper
   # Adds the query issues count to link content
   def query_link_content(query)
     if query.show_issues_count
+      query.project = @project if defined? @project
       query.name + " (" + query.issue_count().to_s + ")"
     else
       query.name
