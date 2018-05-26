@@ -19,6 +19,6 @@ Redmine::Plugin.register :queries_issues_count do
   author 'eXolnet'
   description 'This plugin allow user to add issues count for theirs custom reports.'
   version '1.1.1'
-  url 'https://redmine.exolnet.com/projects/redmine-queries-issues-count'
-  author_url 'http://www.exolnet.com'
+  url 'https://github.com/eXolnet/redmine-queries-issues-count'
+  author_url 'https://www.exolnet.com'
 end
