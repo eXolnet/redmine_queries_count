@@ -1,5 +1,11 @@
 # Redmine Queries Issues Count
 
+[![Github Release](https://img.shields.io/github/release/eXolnet/redmine-queries-issues-count.svg)](./releases)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Build Status](https://img.shields.io/travis/eXolnet/redmine-queries-issues-count/master.svg?style=flat-square)](https://travis-ci.org/eXolnet/redmine-queries-issues-count)
+[![Github All Releases](https://img.shields.io/github/downloads/eXolnet/redmine-queries-issues-count/total.svg)]()
+
+
 Redmine plugin to display issues count for queries in the sidebar.
 
 ## Compatibility
