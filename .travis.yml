@@ -1,0 +1,33 @@
+language: ruby
+
+services:
+  - mysql
+  - postgresql
+
+rvm:
+  - 2.3.1
+
+env:
+  - REDMINE_VER=3.1.7 DB=mysql
+  - REDMINE_VER=3.2.4 DB=mysql
+  - REDMINE_VER=3.3.1 DB=mysql
+  - REDMINE_VER=3.1.7 DB=postgresql
+  - REDMINE_VER=3.2.4 DB=postgresql
+  - REDMINE_VER=3.3.1 DB=postgresql
+
+before_install:
+  - export PLUGIN_NAME=redmine_queries_issues_count
+  - export REDMINE_PATH=$HOME/redmine
+  - svn co http://svn.redmine.org/redmine/tags/$REDMINE_VER $REDMINE_PATH
+  - ln -s $TRAVIS_BUILD_DIR $REDMINE_PATH/plugins/$PLUGIN_NAME
+  - cp pipeline/travis/database-$DB.yml $REDMINE_PATH/config/database.yml
+  - cd $REDMINE_PATH
+
+before_script:
+  - bundle install --jobs=3 --retry=3
+  - bundle exec rake db:create
+  - bundle exec rake db:migrate
+  - bundle exec rake redmine:plugins:migrate
+
+script:
+  - bundle exec rake redmine:plugins:test NAME=$PLUGIN_NAME RUBYOPT="-W0"
