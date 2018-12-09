@@ -8,11 +8,13 @@ rvm:
   - 2.3.1
 
 env:
-  - REDMINE_VER=3.1.7 DB=mysql
-  - REDMINE_VER=3.2.4 DB=mysql
+  - REDMINE_VER=4.0.0 DB=mysql
+  - REDMINE_VER=4.0.0 DB=postgresql
+  - REDMINE_VER=3.4.7 DB=mysql
+  - REDMINE_VER=3.4.7 DB=postgresql
+  - REDMINE_VER=3.3.9 DB=mysql
+  - REDMINE_VER=3.3.9 DB=postgresql
   - REDMINE_VER=3.3.1 DB=mysql
-  - REDMINE_VER=3.1.7 DB=postgresql
-  - REDMINE_VER=3.2.4 DB=postgresql
   - REDMINE_VER=3.3.1 DB=postgresql
 
 before_install:
