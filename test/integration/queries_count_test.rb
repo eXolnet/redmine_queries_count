@@ -29,7 +29,7 @@ class QueriesCountTest < Redmine::IntegrationTest
           :utf8 => "✓",
           :type => "IssueQuery",
           :query => {
-            :name => "Test",
+            :name => "Test Query",
             :visibility => 0,
             :show_count => 1,
             :group_by => "",
@@ -53,5 +53,8 @@ class QueriesCountTest < Redmine::IntegrationTest
 
     # check query attributes
     assert query.show_count
+
+    # check query count is display in the list
+    assert_select "#sidebar ul.queries a", text: "Test Query (10)", count: 1
   end
 end
