@@ -1,6 +1,6 @@
 class UpdateQueries < ActiveRecord::Migration
   def up
-    add_column :queries, :show_count, :boolean, :default => 0
+    add_column :queries, :show_count, :boolean, :default => true
   end
 
   def down
