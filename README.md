@@ -3,6 +3,7 @@
 [![Latest Release](https://img.shields.io/github/release/eXolnet/redmine-queries-count.svg?style=flat-square)](https://github.com/eXolnet/redmine-queries-count/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-8469ad.svg?style=flat-square)](LICENSE)
 [![Build Status](https://img.shields.io/travis/eXolnet/redmine-queries-count/master.svg?style=flat-square)](https://travis-ci.org/eXolnet/redmine-queries-count)
+[![Maintainability](https://api.codeclimate.com/v1/badges/1b08f64f3a4885efbae3/maintainability)](https://codeclimate.com/github/eXolnet/redmine-queries-count/maintainability)
 
 This plugin allow user to add queries item count in the sidebar.
 
