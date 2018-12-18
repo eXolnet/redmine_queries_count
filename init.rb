@@ -10,7 +10,7 @@ Redmine::Plugin.register :redmine_queries_count do
   url 'https://github.com/eXolnet/redmine-queries-count'
   author_url 'https://www.exolnet.com'
 
-  requires_redmine :version_or_higher => '3.3'
+  requires_redmine :version_or_higher => '3.4'
 end
 
 require 'redmine_queries_count'
