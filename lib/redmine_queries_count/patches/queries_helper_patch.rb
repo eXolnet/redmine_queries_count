@@ -25,6 +25,7 @@ module RedmineQueriesCount
 
             next unless link
 
+            query.project = @project if defined? @project
             link.content = link.content + " (" + query.issue_count().to_s + ")"
           end
 
