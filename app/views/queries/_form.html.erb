@@ -1,0 +1,8 @@
+<% html = Nokogiri::HTML.fragment(render(:parent, :query => query)) %>
+
+<% html.at_css("fieldset#options").before(capture do %>
+  <p><label for="query_show_count"><%=l(:field_show_count)%></label>
+  <%= check_box 'query', 'show_count' %></p>
+<% end) %>
+
+<%= raw html %>
