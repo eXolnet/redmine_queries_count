@@ -12,8 +12,8 @@ cache: bundler
 env:
   # - REDMINE_VER=4.0.0 DB=mysql
   # - REDMINE_VER=4.0.0 DB=postgresql
-  - REDMINE_VER=3.4.7 DB=mysql
-  - REDMINE_VER=3.4.7 DB=postgresql
+  - REDMINE_VER=3.4.11 DB=mysql
+  - REDMINE_VER=3.4.11 DB=postgresql
   - REDMINE_VER=3.4.0 DB=mysql
   - REDMINE_VER=3.4.0 DB=postgresql
 
