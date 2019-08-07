@@ -21,11 +21,11 @@ class QueriesCountTest < Redmine::IntegrationTest
   def test_add_query
     log_user('jsmith', 'jsmith')
 
-    get '/projects/ecookbook/queries/new'
+    compatible_request :get, '/projects/ecookbook/queries/new'
     assert_response :success
 
     query = new_record(IssueQuery) do
-      post '/projects/ecookbook/queries', :params => {
+      compatible_request :post, '/projects/ecookbook/queries', :params => {
           :utf8 => "✓",
           :type => "IssueQuery",
           :query => {
