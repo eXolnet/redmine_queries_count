@@ -1,6 +1,6 @@
 require File.expand_path('../../test_helper', __FILE__)
 
-class QueriesCountTest < Redmine::IntegrationTest
+class QueriesCountTest < RedmineQueriesCount::IntegrationTest
   fixtures :projects,
            :users, :email_addresses,
            :roles,

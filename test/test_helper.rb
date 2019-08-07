@@ -23,3 +23,9 @@ module RedmineQueriesCount
 end
 
 include RedmineQueriesCount::TestHelper
+
+if ActiveRecord::VERSION::MAJOR >= 4
+  class RedmineQueriesCount::IntegrationTest < Redmine::IntegrationTest; end
+else
+  class RedmineQueriesCount::IntegrationTest < ActionController::IntegrationTest; end
+end
