@@ -46,10 +46,11 @@ class QueriesCountTest < RedmineQueriesCount::IntegrationTest
             :status_id => "o"
           }
         }
+
+      # check redirection
+      assert_redirected_to :controller => 'issues', :action => 'index', :params => {:query_id => 1}
+      follow_redirect!
     end
-    # check redirection
-    assert_redirected_to :controller => 'issues', :action => 'index', :params => {:query_id => 1}
-    follow_redirect!
 
     # check query attributes
     assert query.show_count
