@@ -15,8 +15,8 @@ module RedmineQueriesCount
       end
 
       module InstanceMethods
-        def build_from_params_with_queries_count(params)
-          build_from_params_without_queries_count(params)
+        def build_from_params_with_queries_count(params, *args)
+          build_from_params_without_queries_count(params, *args)
 
           self.show_count = params[:query] && params[:query][:show_count]
 
