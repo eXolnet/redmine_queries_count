@@ -25,7 +25,7 @@ class QueriesCountTest < RedmineQueriesCount::IntegrationTest
     assert_response :success
 
     query = new_record(IssueQuery) do
-      compatible_request :post, '/projects/ecookbook/queries', :params => {
+      compatible_request :post, '/projects/ecookbook/queries',
           :utf8 => "✓",
           :type => "IssueQuery",
           :query => {
@@ -45,7 +45,6 @@ class QueriesCountTest < RedmineQueriesCount::IntegrationTest
           :op => {
             :status_id => "o"
           }
-        }
 
       # check redirection
       assert_redirected_to :controller => 'issues', :action => 'index', :params => {:query_id => 1}
