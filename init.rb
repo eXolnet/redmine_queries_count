@@ -7,7 +7,7 @@ Redmine::Plugin.register :redmine_queries_count do
   author 'eXolnet'
   description 'This plugin allow user to add queries item count in the sidebar.'
   version QUERIES_COUNT_VERSION_NUMBER
-  url 'https://github.com/eXolnet/redmine-queries-count'
+  url 'https://github.com/eXolnet/redmine_queries_count'
   author_url 'https://www.exolnet.com'
 
   requires_redmine :version_or_higher => '3.4'
