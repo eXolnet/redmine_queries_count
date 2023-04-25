@@ -13,4 +13,4 @@ Redmine::Plugin.register :redmine_queries_count do
   requires_redmine :version_or_higher => '3.4'
 end
 
-require 'redmine_queries_count'
+require File.dirname(__FILE__) + '/lib/redmine_queries_count'
