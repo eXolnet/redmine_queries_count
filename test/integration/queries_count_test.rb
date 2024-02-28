@@ -15,46 +15,22 @@ class QueriesCountTest < RedmineQueriesCount::IntegrationTest
            :custom_fields,
            :custom_values,
            :custom_fields_trackers,
-           :attachments
+           :attachments,
+           :queries
 
   # create a query
-  def test_add_query
+  def test_show_query_count
     log_user('jsmith', 'jsmith')
 
-    compatible_request :get, '/projects/ecookbook/queries/new'
+    query = Query.find_by_name('Public query for all projects')
+
+    query.show_count = true
+    query.save!
+
+    compatible_request :get, '/issues'
     assert_response :success
 
-    query = new_record(IssueQuery) do
-      compatible_request :post, '/projects/ecookbook/queries',
-          :utf8 => "✓",
-          :type => "IssueQuery",
-          :query => {
-            :name => "Test Query",
-            :visibility => 0,
-            :show_count => 1,
-            :group_by => "",
-            :sort_criteria => [
-              ["id", "desc"],
-              ["", ""],
-              ["", ""]
-            ]
-          },
-          :default_columns => 1,
-          :t => [""],
-          :f => ["", "status_id"],
-          :op => {
-            :status_id => "o"
-          }
-
-      # check redirection
-      assert_redirected_to :controller => 'issues', :action => 'index', :params => {:query_id => 1}
-      follow_redirect!
-    end
-
-    # check query attributes
-    assert query.show_count
-
     # check query count is display in the list
-    assert_select "#sidebar ul.queries a", text: "Test Query (10)", count: 1
+    assert_select "#sidebar ul.queries a", text: /Public query for all projects \(\d+\)/, count: 1
   end
 end
