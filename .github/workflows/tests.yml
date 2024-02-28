@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - name: Execute tests
-        uses: eXolnet/action-redmine-plugin@v1
+        uses: eXolnet/action-redmine-plugin@v2
         with:
           plugin_name: "redmine_queries_count"
           redmine_version: "${{ matrix.redmine }}"
