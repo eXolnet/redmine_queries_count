@@ -7,8 +7,6 @@ module RedmineQueriesCount
         base.send(:include, InstanceMethods)
 
         base.class_eval do
-          unloadable # Send unloadable so it will not be unloaded in development
-
           alias_method :query_links_without_queries_count, :query_links
           alias_method :query_links, :query_links_with_queries_count
         end
