@@ -1,4 +1,4 @@
-<% html = Nokogiri::HTML.fragment(render(:parent, :query => query)) %>
+<% html = Nokogiri::HTML5.fragment(render(:parent, :query => query)) %>
 
 <% html.at_css("fieldset#options").before(capture do %>
   <p><label for="query_show_count"><%=l(:field_show_count)%></label>
