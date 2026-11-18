@@ -16,7 +16,8 @@ class QueriesCountTest < RedmineQueriesCount::IntegrationTest
            :custom_values,
            :custom_fields_trackers,
            :attachments,
-           :queries
+           :queries,
+           :time_entries
 
   # create a query
   def test_show_query_count
@@ -86,6 +87,35 @@ class QueriesCountTest < RedmineQueriesCount::IntegrationTest
 
     assert_equal true, query.reload.show_count
     assert_select '#sidebar ul.queries a', :text => /Public query for all projects \(\d+\)/, :count => 1
+  end
+
+  def test_show_time_entry_query_count
+    query = TimeEntryQuery.find(10)
+    query.update_column(:show_count, true)
+
+    expected = TimeEntry.visible(User.find(2)).joins(:project).
+      where(:project_id => 1, :user_id => 2).count
+    assert expected > 0
+
+    log_user('jsmith', 'jsmith')
+    get '/projects/ecookbook/time_entries'
+    assert_response :success
+
+    assert_select '#sidebar ul.queries a', :text => "My spent time (#{expected})", :count => 1
+  end
+
+  def test_show_project_query_count
+    query = ProjectQuery.find(11)
+    query.update_column(:show_count, true)
+
+    expected = Project.visible(User.find(2)).where(:id => User.find(2).memberships.map(&:project_id)).count
+    assert expected > 0
+
+    log_user('jsmith', 'jsmith')
+    get '/projects'
+    assert_response :success
+
+    assert_select '#sidebar ul.queries a', :text => "Projects as list (#{expected})", :count => 1
   end
 
   private
