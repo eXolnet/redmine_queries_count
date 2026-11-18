@@ -1,6 +1,6 @@
 require 'redmine'
 
-QUERIES_COUNT_VERSION_NUMBER = '2.0.0'
+QUERIES_COUNT_VERSION_NUMBER = '2.0.1'
 
 Redmine::Plugin.register :redmine_queries_count do
   name 'Queries Count'
