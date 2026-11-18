@@ -24,10 +24,16 @@ module RedmineQueriesCount
             next unless link
 
             query.project = @project if defined? @project
-            link.content = link.content + " (" + query.issue_count().to_s + ")"
+            link.content = link.content + " (" + queries_count_for(query).to_s + ")"
           end
 
           return html.to_html.html_safe
+        end
+
+        # Only IssueQuery defines issue_count; other query types (time entries,
+        # projects, users...) are counted with their base scope.
+        def queries_count_for(query)
+          query.respond_to?(:issue_count) ? query.issue_count : query.base_scope.count
         end
       end
     end
